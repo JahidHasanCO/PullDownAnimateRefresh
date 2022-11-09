@@ -229,7 +229,7 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
                 refreshView.setAnimation(mLottieAnimationAssetFileName)
             }
             else -> {
-                throw ClassCastException("Need SSLottieAnimationView or SSGifAnimationView as RefreshView")
+                throw ClassCastException("Need LottieAnimationView or GifAnimationView as RefreshView")
             }
         }
         mRefreshView = refreshView
@@ -907,6 +907,15 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
             }
         }
     }
+
+     fun clickToStartPullDownRefresh(){
+        if (mIsRefreshing || mIsAnimatingToStart) {
+            return
+        }
+        mIsRefreshing = true
+        mNotifyListener = false
+        animateToRefreshingPosition(mTargetOrRefreshViewOffsetY.toInt(), mRefreshingListener)
+     }
 
     private fun initDragStatus(activeMoveY: Float) {
         val diff = activeMoveY - mInitialDownY
