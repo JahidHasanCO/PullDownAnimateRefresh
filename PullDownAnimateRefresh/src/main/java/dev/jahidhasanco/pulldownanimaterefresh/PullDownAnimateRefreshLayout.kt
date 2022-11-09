@@ -2,7 +2,6 @@ package dev.jahidhasanco.pulldownanimaterefresh
 
 import android.animation.ValueAnimator
 import android.content.Context
-import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
@@ -13,7 +12,6 @@ import android.view.animation.Animation
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.Interpolator
 import android.view.animation.Transformation
-import android.widget.AbsListView
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.NestedScrollingChild
 import androidx.core.view.NestedScrollingChildHelper
@@ -32,10 +30,10 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
     ViewGroup(context, attrs), NestedScrollingParent, NestedScrollingChild {
 
     private val logTag = this.javaClass.name
-    private val ssAnimViewLottieMethodError =
-        "For this method to use you need to Provide SSAnimationView as RefreshView"
+    private val AnimViewLottieMethodError =
+        "For this method to use you need to Provide AnimationView as RefreshView"
     private val lottieAnimViewGifMethodError =
-        "For this method to use you need to Provide SSLottieAnimationView as RefreshView"
+        "For this method to use you need to Provide LottieAnimationView as RefreshView"
 
     // NestedScroll
     private var mTotalUnconsumed = 0f
@@ -78,7 +76,7 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
     private var mTarget: View? = null
     private var mRefreshView: View
     private var mDragDistanceConverter: DragDistanceConverter
-    private var mLottieAnimationAssetFileName: String = "lottie_rolling_dots.json"
+    private var mLottieAnimationAssetFileName: String = "refresh_animation.json"
     private var mRefreshLayoutParams: ViewGroup.LayoutParams
 
     init {
@@ -247,7 +245,7 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
         if (mRefreshView is LottieAnimationView) {
             (mRefreshView as LottieAnimationView).setAnimation(mLottieAnimationAssetFileName)
         } else {
-            throw java.lang.Exception(ssAnimViewLottieMethodError)
+            throw java.lang.Exception(AnimViewLottieMethodError)
         }
     }
 
@@ -275,7 +273,7 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
         if (mRefreshView is LottieAnimationView) {
             (mRefreshView as LottieAnimationView).repeatCount = count.count
         } else {
-            throw java.lang.Exception(ssAnimViewLottieMethodError)
+            throw java.lang.Exception(AnimViewLottieMethodError)
         }
     }
 
@@ -283,7 +281,7 @@ class PullDownAnimateRefreshLayout(context: Context?, attrs: AttributeSet? = nul
         if (mRefreshView is LottieAnimationView) {
             (mRefreshView as LottieAnimationView).repeatMode = mode.mode
         } else {
-            throw java.lang.Exception(ssAnimViewLottieMethodError)
+            throw java.lang.Exception(AnimViewLottieMethodError)
         }
     }
 

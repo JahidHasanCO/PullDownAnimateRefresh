@@ -40,8 +40,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     //gif
-    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.22'
+    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
 
     // Lottie
-    api 'com.airbnb.android:lottie:3.7.0'
+    api 'com.airbnb.android:lottie:5.2.0'
 }
