@@ -9,8 +9,8 @@
 	}
 ```
 
-```agsl
+```
     dependencies {
-	       implementation 'com.github.JahidHasanCO:PullDownAnimateRefresh:Tag'
+	       implementation 'com.github.JahidHasanCO:PullDownAnimateRefresh:1.0.0'
 	}
 ```
